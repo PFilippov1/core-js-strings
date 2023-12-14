@@ -19,8 +19,14 @@
  *   getStringLength(null) => 0
  *   getStringLength(undefined) => 0
  */
-function getStringLength(/* value */) {
-  throw new Error('Not implemented');
+// eslint-disable-next-line consistent-return
+function getStringLength(value) {
+  if (value === null || value === undefined) {
+    return 0;
+  }
+  if (typeof value === 'string') {
+    return value.length;
+  }
 }
 
 /**
@@ -37,8 +43,17 @@ function getStringLength(/* value */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  if (value === null || value === undefined) {
+    return false;
+  }
+  if (typeof value === 'string') {
+    return true;
+  }
+  if (value instanceof String) {
+    return true;
+  }
+  return false;
 }
 
 /**
